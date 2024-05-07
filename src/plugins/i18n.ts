@@ -3,6 +3,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 import { deConfig } from '#app/locales/de/config.js';
 import { enConfig } from '#app/locales/en/config.js';
+import { chsConfig } from '#app/locales/zh-CN/config.js';
 import { esConfig } from '#app/locales/es/config.js';
 import { frConfig } from '#app/locales/fr/config.js';
 import { itConfig } from '#app/locales/it/config.js';
@@ -58,12 +59,15 @@ export function initI18n(): void {
   i18next.use(LanguageDetector).init({
     lng: lang,
     fallbackLng: 'en',
-    supportedLngs: ['en', 'es', 'fr', 'it', 'de'],
+    supportedLngs: ['zh', 'zh-CN', 'en', 'es', 'fr', 'it', 'de'],
     debug: true,
     interpolation: {
       escapeValue: false,
     },
     resources: {
+      'zh-CN': {
+        ...chsConfig
+        },
       en: {
         ...enConfig
       },
